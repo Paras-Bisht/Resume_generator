@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Create Resume</title>
+
+    <!-- CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="css/styles.css" rel="stylesheet" > -->
+    <link href="css/bootstrap-glyphicons.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #e3f2fdc2;">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/index.html"><strong>Resume-Generator</strong></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigate"
+                    style="background-color: #34495e;">
+                    <span style="background-color: #ecf0f1;" class="icon-bar"></span>
+                    <span style="background-color: #ecf0f1;" class="icon-bar"></span>
+                    <span style="background-color: #ecf0f1;" class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navigate">
+                <ul class=" btn-margin-right nav navbar-nav navbar-right">
+                    <li class="nav-item active">
+                        <p><a class="btn btn-outline-success btn-primary  my-2 my-sm-0 form-button button-custom"
+                                href="index.html" role="button">Home</a></p>
+                    </li>
+                    <li class="nav-item active">
+                        <p><a class="btn btn-outline-success btn-primary  my-2 my-sm-0 form-button button-custom"
+                                data-toggle="modal" data-target="#myModal" role="button">Edit Details</a>
+                    </li>
+                    <li class="nav-item active">
+                        <p><a class="btn btn-outline-success btn-primary  my-2 my-sm-0 button-custom" href="temp.html"
+                                role="button">Templates</a></p>
+                    </li>
+                    <li class="nav-item active">
+                        <input class="btn btn-outline-success btn-primary  my-2 my-sm-0 button-custom" type="button"
+                            onclick="printDiv('printableArea')" value="Generate PDF" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Create Resume</h4>
+                </div><br>
+                <form style="padding-left:100px; padding-right:100px;">
+                    <div class="form-group">
+
+                        <!-- <div class="col-sm-8"> -->
+                        <label>Name :</label>
+                        <input type="text" name="message" class="form-control" id="user_input" required>
+                        <!-- </div> -->
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address:</label>
+                        <textarea type="text" name="message" rows="3" class="form-control" id="user_input2"
+                            required> </textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" name="message" class="form-control" id="user_input3" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contact:</label>
+                        <input type="text" name="message" class="form-control" id="user_input4" required>
+                    </div>
+
+                    <label>Objective:</label>
+                    <textarea id="obj" cols="100" rows="2" class="form-control" required></textarea><br>
+
+                    <div class="form-group">
+                        <label> Technical Skill:</label>
+                        <div class="row">
+
+
+                            <div class="col-sm-2"><input type="text" class=" form-control" id="user_input5">
+                            </div>
+
+                            <div class="col-sm-2"> <input type="text" class=" form-control" id="user_input6">
+                            </div>
+
+                            <div class="col-sm-2"> <input type="text" class=" form-control" id="user_input7">
+                            </div>
+                            <div class="col-sm-2"> <input type="text" class=" form-control" id="user_input8">
+                            </div>
+
+                            <div class="col-sm-2"> <input type="text" class=" form-control" id="user_input9">
+                            </div>
+                            <div class="col-sm-2"> <input type="text" class=" form-control" id="user_input10">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="qualification">
+                        <label>Qualification:</label>
+                        <table id="myTable">
+                            <col width="160">
+                            <tr>
+                                <th>Class</th>
+                                <th>Year of Passing</th>
+                                <th>Board/University</th>
+                                <th>Percentage(%)</th>
+                            </tr>
+                            <col width="170">
+                            <tr>
+                                <td>Graduation</td>
+                                <td><input type="text" class="table_input" id="year1" placeholder="Enter Passing Year"
+                                        required>
+                                </td>
+                                <td><input type="text" class="table_input1" id="bu1" placeholder="Enter B/U Number"
+                                        required>
+                                </td>
+                                <td><input type="text" class="table_input" id="per1" placeholder="Enter percentage"
+                                        required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>12<sup>th</sup></td>
+                                <td><input type="text" class="table_input" id="year2" placeholder="Enter Passing Year"
+                                        required>
+                                </td>
+                                <td><input type="text" class="table_input1" id="bu2" placeholder="Enter B/U Number"
+                                        required>
+                                </td>
+                                <td><input type="text" class="table_input" id="per2" placeholder="Enter percentage"
+                                        required>
+                                </td>
+                            </tr>
+                            <col width="180">
+                            <tr>
+                                <td>10<sup>th</sup></td>
+                                <td><input type="text" class="table_input" id="year3" placeholder="Enter Passing Year"
+                                        required>
+                                </td>
+                                <td><input type="text" class="table_input1" id="bu3" placeholder="Enter B/U Number"
+                                        required>
+                                </td>
+                                <td><input type="text" class="table_input" id="per3" placeholder="Enter percentage"
+                                        required>
+                                </td>
+                            </tr>
+
+                        </table><br>
+                    </div>
+
+                    <label>Experience/Projects:</label>
+                    <textarea id="user_input12-1" cols="100" rows="2" class="form-control" required></textarea><br>
+                    <textarea id="user_input12-2" cols="100" rows="2" class="form-control" required></textarea><br>
+                    <!-- <textarea id="user_input12-3" cols="100" rows="2" class="form-control" required></textarea><br> -->
+
+                    <!-- <div class="form-group"> -->
+
+                    <label>Interests:</label>
+                    <input type="text" rows="5" class=" form-control" id="user_input13" required /><br>
+                    <!-- </div> -->
+
+
+                    <label>Crertificae & Award:</label>
+                    <input type="text" rows="5" class=" form-control" id="user_input14" required /><br>
+
+                </form>
+
+                <div style="padding-left: 100px;"><input data-dismiss="modal" value="Submit " type="submit"
+                        class="btn btn-outline-success btn-success  my-2 my-sm-0 button-custom" onclick="showInput();">
+                </div><br />
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Modal -->
+
+    <script>
+
+
+        function showInput() {
+            // console.log("1st");
+            document.getElementById('display').innerHTML = document.getElementById("user_input").value;
+
+            // document.getElementById('display1').innerHTML = document.getElementById("user_input1").value;
+
+            document.getElementById('display2').innerHTML = document.getElementById("user_input2").value;
+
+            document.getElementById('display3').innerHTML = document.getElementById("user_input3").value;
+
+            document.getElementById('display4').innerHTML = document.getElementById("user_input4").value;
+
+            document.getElementById('displayobj').innerHTML = document.getElementById("obj").value;
+
+            document.getElementById('display5').innerHTML = document.getElementById("user_input5").value;
+
+            document.getElementById('display6').innerHTML = document.getElementById("user_input6").value;
+
+            document.getElementById('display7').innerHTML = document.getElementById("user_input7").value;
+
+            document.getElementById('display8').innerHTML = document.getElementById("user_input8").value;
+
+            document.getElementById('display9').innerHTML = document.getElementById("user_input9").value;
+
+            document.getElementById('display10').innerHTML = document.getElementById('user_input10').value;
+
+            document.getElementById("displayyear1").innerHTML = document.getElementById("year1").value;
+            document.getElementById("displaybu1").innerHTML = document.getElementById("bu1").value;
+            document.getElementById("displayper1").innerHTML = document.getElementById('per1').value;
+
+
+            document.getElementById("displayyear2").innerHTML = document.getElementById("year2").value;
+            document.getElementById("displaybu2").innerHTML = document.getElementById("bu2").value;
+            document.getElementById("displayper2").innerHTML = document.getElementById('per2').value;
+
+
+            document.getElementById("displayyear3").innerHTML = document.getElementById("year3").value;
+            document.getElementById("displaybu3").innerHTML = document.getElementById("bu3").value;
+            document.getElementById("displayper3").innerHTML = document.getElementById('per3').value;
+
+
+            document.getElementById('display12-1').innerHTML = document.getElementById('user_input12-1').value;
+            document.getElementById('display12-2').innerHTML = document.getElementById('user_input12-2').value;
+            // document.getElementById('display12-3').innerHTML = document.getElementById('user_input12-3').value;
+
+            document.getElementById('display13').innerHTML = document.getElementById('user_input13').value;
+
+            document.getElementById('display14').innerHTML = document.getElementById('user_input14').value;
+
+        }
+
+    </script>
+
+
+    <!-- <div class="row"> -->
+    <div class=" col-md-2 col-lg-2 col-xs-12">
+
+
+    </div>
+    <!-- <div class="col-md-8 col-lg-8 col-xs-12 div4"> -->
+    <div class="row" id="printableArea">
+        <div class="col-md-4 col-lg-2 col-xs-12">
+            <div class="row">
+                <div class="container">
+
+                    <div class="col-md-12 col-lg-12 col-xs-12">
+
+                        <h4 class="text-left text-primary ex1" id='display'
+                            style="color:rgb(139, 62, 47);font-size: 36px;">
+                            <b>Your Name</b>
+                        </h4>
+
+                        <h4 class="text-left text-primary ex1" id='display'
+                            style="color: rgb(131, 111, 255);font-size: 25px;">Contact
+                        </h4>
+
+                        <h5 class="text-primary text-left ex2" id='display4' style="color: #020202;">
+                            +918358347476
+                        </h5>
+
+                        <h5 class="text-primary text-left ex2" id='display3' style="color: #020202;">
+                            abc@netlink.com
+                        </h5>
+
+                        <p id='display2' class="text-left text-primary ex2" style="color: #020202;">
+                            44 Shirley Ave,West Chicago
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-lg-12 col-xs-12" style=" margin-top:10px;">
+                    <!-- <h4 class="text-center text-primary ex1" style="color: #020202;"><span
+                            class="glyphicon glyphicon-map-marker " style="color:#4FC3F7"></span>&ensp;&ensp;
+                    </h4> -->
+                    <div class="container">
+                        <h4 class="text-left text-primary ex1" style="color: rgb(131, 111, 255);font-size: 25px;">
+                            Objective</h4>
+
+                        <p id='displayobj' class="text-primary ex3" style="color: #020202;">
+                            Secure a responsible career opportunity to fully utilize my training and skills, while
+                            making a significant contribution to the success of the company.
+                        </p>
+
+                        <h4 class="text-left text-primary ex1" style="color: rgb(131, 111, 255);font-size: 25px;">
+                            Qualification</h4>
+
+                        <p id="displayyear1" style="color: rgb(0, 204, 255);font-size: 20px;">year</p>
+                        <p>Graduation &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>:<span
+                                    id="displaybu1">Board</span>&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    id="displayper1">Percentage </span></span><span>%</span><br>
+
+                        <p id="displayyear2" style="color: rgb(0, 204, 255);font-size: 20px;">year</p>
+                        <p>12th
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>:<span
+                                    id="displaybu2">Board</span>&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    id="displayper2">Percentage </span></span><span>%</span><br>
+
+                        <p id="displayyear3" style="color: rgb(0, 204, 255);font-size: 20px;">year</p>
+                        <p>10th
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>:<span
+                                    id="displaybu3">Board</span>&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    id="displayper3">Percentage </span></span><span>%</span><br><br>
+
+
+                        <h4 class="text-left text-primary ex1" style="color: rgb(131, 111, 255);font-size: 25px;">
+                            Technical skills<span></h4>
+
+                        <ul>
+                            <li id="display5">first</li>
+                            <li id="display6">Second</li>
+                            <li id="display7">Third</li>
+                            <li id="display8">Fourth</li>
+                            <li id="display9">Fifth</li>
+                            <li id="display10">Sixth</li>
+                        </ul>
+
+
+                        <h4 class="text-left text-primary ex1" style="color: rgb(131, 111, 255);font-size: 25px;">
+                            Experience/Project<span></h4>
+
+                        <p id='display12-1' class="text-primary ex3" style="color: #020202; padding-left:25px;">
+                            Exp1
+                        </p>
+                        <p id='display12-2' class="text-primary ex3" style="color: #020202; padding-left:25px;">
+                            Exp2
+                        </p>
+
+
+                        <!-- <hr style="border-top: 1px solid #000000;"> -->
+
+                        <h4 class="text-left text-primary ex1" style="color: rgb(131, 111, 255);font-size: 25px;">
+                            Hobbies/Area of Interest<span>
+                        </h4>
+                        <p id='display13' class="text-primary ex3" style="color: #020202;">
+                            There are many variations of passages of Lorem Ipsum available, but the majority have
+                            suffered
+                            alteration in some form, by injected
+                        </p>
+
+                        <h4 class="text-left text-primary ex1" style="color: rgb(131, 111, 255);font-size: 25px;">
+                            Certifications/Awards<span></h4>
+                        <p id='display14' class="text-primary ex3" style="color: #020202;">
+                            There are many variations of passages of Lorem Ipsum available, but the majority have
+                            suffered
+                            alteration in some form, by injected
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    </div>
+
+    </div><br>
+
+    <script>
+
+        function printDiv(divName) {
+
+            var doc = new jsPDF();
+
+            doc.setFontType("bold");
+            doc.setTextColor(139, 62, 47);
+            doc.setFontSize(30);
+            doc.text(10, 27, document.getElementById("user_input").value);
+
+            doc.setTextColor(205, 91, 69);
+            doc.setFontType("normal");
+            doc.setFontSize(12);
+
+            doc.setFontType("bold");
+            doc.setFontSize(16);
+            doc.setTextColor(131, 111, 255);
+            doc.text(10, 40, "Contact");
+            doc.setFontType("normal");
+
+            doc.setTextColor(131, 111, 255);
+            doc.setFontType("bold");
+            doc.setFontSize(16);
+            doc.text(10, 80, "Objective");
+
+            doc.setFontType("normal");
+            doc.setTextColor(47, 79, 79);
+            doc.setFontSize(12);
+            var ob1 = doc.splitTextToSize(document.getElementById("obj").value, 190);
+            doc.text(ob1, 10, 87);
+
+
+            doc.setTextColor(47, 79, 79);
+            doc.setFontType("normal");
+            doc.setFontSize(12);
+            doc.text(10, 50, "+91: " + document.getElementById("user_input4").value);
+            doc.text(10, 56, document.getElementById("user_input3").value);
+            doc.text(10, 62, document.getElementById("user_input2").value);
+
+            doc.setFontType("bold");
+            doc.setFontSize(16);
+            doc.setTextColor(131, 111, 255);
+            doc.text(10, 162, "Technical Skills");
+
+            doc.setTextColor(47, 79, 79);
+            doc.setFontType("normal");
+            doc.setFontSize(12);
+            var ob2 = doc.splitTextToSize(document.getElementById("user_input5").value, 25);
+            doc.text(ob2, 10, 168);
+
+            doc.setTextColor(47, 79, 79);
+            doc.setFontType("normal");
+            doc.setFontSize(12);
+            var ob2 = doc.splitTextToSize(document.getElementById("user_input6").value, 25);
+            doc.text(ob2, 10, 174);
+
+            doc.setTextColor(47, 79, 79);
+            doc.setFontType("normal");
+            doc.setFontSize(12);
+            var ob2 = doc.splitTextToSize(document.getElementById("user_input7").value, 25);
+            doc.text(ob2, 60, 168);
+
+            doc.setTextColor(47, 79, 79);
+            doc.setFontType("normal");
+            doc.setFontSize(12);
+            var ob2 = doc.splitTextToSize(document.getElementById("user_input8").value, 25);
+            doc.text(ob2, 60, 174);
+
+            doc.setTextColor(47, 79, 79);
+            doc.setFontType("normal");
+            doc.setFontSize(12);
+            var ob2 = doc.splitTextToSize(document.getElementById("user_input9").value, 25);
+            doc.text(ob2, 110, 168);
+
+            doc.setTextColor(47, 79, 79);
+            doc.setFontType("normal");
+            doc.setFontSize(12);
+            var ob2 = doc.splitTextToSize(document.getElementById("user_input10").value, 25);
+            doc.text(ob2, 110, 174);
+
+            doc.setTextColor(131, 111, 255);
+            doc.setFontType("bold");
+            doc.setFontSize(16);
+            doc.text(10, 106, "Qualification");
+
+            doc.setTextColor(0, 204, 255);
+            doc.setFontSize(14);
+            doc.text(10, 112, document.getElementById("year1").value);
+            doc.setFontSize(12);
+            doc.setTextColor(47, 79, 79);
+            doc.text(10, 118, "Graduation              :" + document.getElementById("bu1").value + " University    " + document.getElementById("per1").value + "%");
+
+            doc.setTextColor(0, 204, 255);
+            doc.setFontSize(14);
+            doc.text(10, 126, document.getElementById("year2").value);
+            doc.setFontSize(12);
+            doc.setTextColor(47, 79, 79);
+            doc.text(10, 130, "12th                         :" + document.getElementById("bu2").value + " Board   " + document.getElementById("per2").value + "%");
+
+            doc.setTextColor(0, 204, 255);
+            doc.setFontSize(14);
+            doc.text(10, 138, document.getElementById("year3").value);
+            doc.setFontSize(12);
+            doc.setTextColor(47, 79, 79);
+            doc.text(10, 144, "10th                         :" + document.getElementById("bu3").value + " Board    " + document.getElementById("per3").value + "%");
+
+            doc.setFontType("bold");
+            doc.setFontSize(16);
+            doc.setTextColor(131, 111, 255);
+            doc.text(10, 184, "Experience/Projects");
+
+            doc.setTextColor(47, 79, 79);
+            doc.setFontType("normal");
+            doc.setFontSize(12);
+            var ob3 = doc.splitTextToSize(document.getElementById("user_input12-1").value, 190);
+            doc.text(ob3, 10, 190);
+
+            doc.setTextColor(47, 79, 79);
+            doc.setFontType("normal");
+            doc.setFontSize(12);
+            var ob10 = doc.splitTextToSize(document.getElementById("user_input12-2").value, 190);
+            doc.text(ob10, 10, 214);
+
+
+            doc.setFontType("bold");
+            doc.setFontSize(16);
+            doc.setTextColor(131, 111, 255);
+            doc.text(10, 245, "Hobbies/Area of Interest");
+
+            doc.setTextColor(47, 79, 79);
+            doc.setFontType("normal");
+            doc.setFontSize(12);
+            var ob4 = doc.splitTextToSize(document.getElementById("user_input14").value, 190);
+            doc.text(ob4, 10, 251);
+
+            doc.setFontType("bold");
+            doc.setFontSize(16);
+            doc.setTextColor(131, 111, 255);
+            doc.text(10, 271, "Certifications");
+
+            doc.setTextColor(47, 79, 79);
+            doc.setFontType("normal");
+            doc.setFontSize(12);
+            var ob5 = doc.splitTextToSize(document.getElementById("user_input13").value, 190);
+            doc.text(ob5, 10, 277);
+            // doc.text(10, 256, document.getElementById("cer").value);
+
+            doc.save("Resume.pdf");
+
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            // window.print();
+            document.body.innerHTML = originalContents;
+        }
+
+    </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

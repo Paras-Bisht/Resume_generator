@@ -1,0 +1,161 @@
+               			
+                    body {
+						background:  url('../Image/bg5.jpg');
+  
+
+  background-position: center center;
+  
+ 
+  background-repeat: no-repeat;
+  
+  background-attachment: fixed;
+  
+  
+  background-size: 100% 100%;
+  
+  
+ background-color: ;
+}
+.custome-nav{
+ background-color: #212121;
+}
+.button-custom {
+    color: #FFFFFF;
+    background-color: #212121;
+margin-top: 8px;
+    margin-bottom: 0px;
+    margin-right: 15px;
+    margin-left: 10px;
+
+}
+
+.button-custom1 {
+    color: #424242;
+    background-color: #EEEEEE;
+margin-top: 8px;
+    margin-bottom: 0px;
+    margin-right: 15px;
+    margin-left: 10px;
+	
+}
+
+.div1{
+	padding-top: 100px;
+	 max-height: 600px;
+    min-height: 400px;
+	background-color: #03A9F4;
+}
+
+.div2{
+	
+  background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.40)), url('../Image/bg.jpg');
+  
+
+  
+  background-position: center center;
+  
+ 
+  background-repeat: no-repeat;
+  
+  background-attachment: fixed;
+  
+  background-size: 100% 100%;
+	 max-height: 600px;
+    min-height: 400px;
+	margin: 0px;
+	background-color: #E91E63;
+}
+
+
+.div3{
+	
+  background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.40)), url('../Image/bg1.jpg');
+  background-position: center center;
+  
+ 
+  background-repeat: no-repeat;
+  
+  background-attachment: fixed;
+  
+  background:opacity: 0.5;
+  background-size: 100% 100%;
+	 max-height: 600px;
+    min-height: 400px;
+	margin: 0px;
+	background-color: #4CAF50;
+}
+
+.div4{
+
+	
+	background-color: #020202;
+		margin-top: 100px;
+		margin-bottom: 155px;
+		
+	
+	
+}
+
+.div5{
+	 max-height: 1000px;
+    min-height: 1000px;
+	max-width: 200px;
+	background-color: #212121;
+	
+	
+}
+
+.div8{
+	 max-height: 1057px;
+    min-height: 1057px;
+	
+	background-color: #F5F5F5;
+}
+
+.div9{
+	max-height:500px;
+	 min-height: 200px;
+}
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+p.ex1 {
+    font: 15px arial, sans-serif;
+	text-align: justify;
+
+}
+p.ex2{
+	font-size: 12px;
+	text-align: justify;
+}
+
+p.ex3{
+	font-size: 14px;
+	text-align: justify;
+}
+
+
+.item {
+  position: relative;
+  
+  border: 1px solid #333;
+  margin: 2%;
+  overflow: hidden;
+  
+}
+.item img {
+  max-width: 100%;
+  
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.item:hover img {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}

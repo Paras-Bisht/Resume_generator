@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<title>Create Resume</title>
+
+	<!-- CSS -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- <link href="css/styles.css" rel="stylesheet" > -->
+	<link href="css/bootstrap-glyphicons.css" rel="stylesheet">
+
+	<script>
+
+		function showInput() {
+			document.getElementById('display').innerHTML = document.getElementById("user_input").value;
+
+			document.getElementById('display1').innerHTML = document.getElementById("user_input1").value;
+
+			document.getElementById('display2').innerHTML = document.getElementById("user_input2").value;
+
+			document.getElementById('display3').innerHTML = document.getElementById("user_input3").value;
+
+			document.getElementById('display4').innerHTML = document.getElementById("user_input4").value;
+
+			document.getElementById('display5').innerHTML = document.getElementById("user_input5").value;
+
+			document.getElementById('display6').innerHTML = document.getElementById("user_input6").value;
+
+			document.getElementById('display7').innerHTML = document.getElementById("user_input7").value;
+
+			document.getElementById('display8').innerHTML = document.getElementById("user_input8").value;
+
+			document.getElementById('display9').innerHTML = document.getElementById("user_input9").value;
+
+			document.getElementById('display10').innerHTML = document.getElementById('user_input10').value;
+
+			document.getElementById('display11-1').innerHTML = document.getElementById('user_input11-1').value;
+			document.getElementById('display11-2').innerHTML = document.getElementById('user_input11-2').value;
+			document.getElementById('display11-3').innerHTML = document.getElementById('user_input11-3').value;
+
+			document.getElementById('display12-1').innerHTML = document.getElementById('user_input12-1').value;
+			document.getElementById('display12-2').innerHTML = document.getElementById('user_input12-2').value;
+			document.getElementById('display12-3').innerHTML = document.getElementById('user_input12-3').value;
+
+			document.getElementById('display13').innerHTML = document.getElementById('user_input13').value;
+
+			document.getElementById('display14').innerHTML = document.getElementById('user_input14').value;
+
+
+			var preview = document.querySelector('img');
+			var file = document.querySelector('input[type=file]').files[0];
+			var reader = new FileReader();
+
+			reader.onloadend = function () {
+				preview.src = reader.result;
+
+			}
+
+			if (file) {
+				reader.readAsDataURL(file);
+			} else {
+				preview.src = "Image/img3.jpg";
+			}
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #e3f2fdc2;">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/index.html"><strong>Resume-Generator</strong></a>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigate"
+					style="background-color: #34495e;">
+					<span style="background-color: #ecf0f1;" class="icon-bar"></span>
+					<span style="background-color: #ecf0f1;" class="icon-bar"></span>
+					<span style="background-color: #ecf0f1;" class="icon-bar"></span>
+				</button>
+			</div>
+
+			<div class="collapse navbar-collapse" id="navigate">
+				<ul class=" btn-margin-right nav navbar-nav navbar-right">
+					<li class="nav-item active">
+						<p><a class="btn btn-outline-success btn-primary  my-2 my-sm-0 form-button button-custom"
+								href="index.html" role="button">Home</a></p>
+					</li>
+					<li class="nav-item active">
+						<p><a class="btn btn-outline-success btn-primary  my-2 my-sm-0 form-button button-custom"
+								data-toggle="modal" data-target="#myModal" role="button">Edit Details</a>
+					</li>
+					<li class="nav-item active">
+						<p><a class="btn btn-outline-success btn-primary  my-2 my-sm-0 button-custom" href="temp.html"
+								role="button">Templates</a></p>
+					</li>
+					<li class="nav-item active">
+						<input class="btn btn-outline-success btn-primary  my-2 my-sm-0 button-custom" type="button"
+							onclick="printDiv('printableArea')" value="Generate PDF" />
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog modal-lg">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Create Resume</h4>
+				</div>
+				<form style="padding-left:100px; padding-right:100px;">
+					<div class="form-group">
+						<div class="row">
+
+							<div class="col-sm-4">
+								<label>Photo :</label>
+								<input type="file" name="message" class="form-control" required>
+							</div>
+							<div class="col-sm-8">
+								<label>Name :</label>
+								<input type="text" name="message" class="form-control" id="user_input" required>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>Position :</label>
+						<input type="text" name="message" class="form-control" id="user_input1" required>
+					</div>
+
+					<div class="form-group">
+						<label>Address:</label>
+						<textarea type="text" name="message" rows="5" class="form-control" id="user_input2"
+							required> </textarea>
+					</div>
+
+					<div class="form-group">
+						<label>Email:</label>
+						<input type="email" name="message" class="form-control" id="user_input3" required>
+					</div>
+
+					<div class="form-group">
+						<label>Contact:</label>
+						<input type="text" name="message" class="form-control" id="user_input4" required>
+					</div>
+
+					<div class="form-group">
+						<label> Technical Skill:</label>
+						<div class="row">
+
+
+							<div class="col-sm-2"><input type="text" class=" form-control" id="user_input5" required />
+							</div>
+
+							<div class="col-sm-2"> <input type="text" class=" form-control" id="user_input6" required />
+							</div>
+
+							<div class="col-sm-2"> <input type="text" class=" form-control" id="user_input7" required />
+							</div>
+							<div class="col-sm-2"> <input type="text" class=" form-control" id="user_input8" required />
+							</div>
+
+							<div class="col-sm-2"> <input type="text" class=" form-control" id="user_input9" required />
+							</div>
+							<div class="col-sm-2"> <input type="text" class=" form-control" id="user_input10"
+									required />
+							</div>
+						</div>
+					</div>
+
+					<label>Education:</label>
+					<textarea id="user_input11-1" cols="100" rows="3" class="form-control" required></textarea><br>
+					<textarea id="user_input11-2" cols="100" rows="3" class="form-control" required></textarea><br>
+					<textarea id="user_input11-3" cols="100" rows="3" class="form-control" required></textarea><br>
+
+
+					<label>Experience/Projects:</label>
+					<textarea id="user_input12-1" cols="100" rows="2" class="form-control" required></textarea><br>
+					<textarea id="user_input12-2" cols="100" rows="2" class="form-control" required></textarea><br>
+					<textarea id="user_input12-3" cols="100" rows="2" class="form-control" required></textarea><br>
+
+
+					<label>Crertificae & Award:</label>
+					<input type="text" rows="5" class=" form-control" id="user_input13" required /><br>
+
+					<div class="form-group">
+
+						<label>Interests:</label>
+						<input type="text" rows="5" class=" form-control" id="user_input14" required />
+					</div>
+
+				</form>
+
+				<div style="padding-left: 100px;"><input data-dismiss="modal" value="Submit " type="submit"
+						class="btn btn-outline-success btn-success  my-2 my-sm-0 button-custom" onclick="showInput();">
+				</div><br />
+
+			</div>
+
+		</div>
+	</div>
+	<!-- Modal -->
+
+
+	<div class="row">
+		<div class="col-md-2 col-lg-2 col-xs-12">
+
+
+		</div>
+		<div class="col-md-8 col-lg-8 col-xs-12 div4">
+			<div class="row" id="printableArea">
+				<div class="col-md-4 col-lg-4 col-xs-4 " style="background-color:#F5F5F5 ;">
+					<div class="row">
+						<div class="col-md-12 col-lg-12 col-xs-12">
+							<p class="text-center" style="margin-top:30px;"><img src="images/download.png"
+									class="img-circle" alt="User Img" width="60%" height="60%"></p>
+
+							<h4 class="text-center text-primary ex1" id='display' style="color: #020202;">Your Name
+							</h4>
+							<font face="verdana">
+								<h6 class="text-center text-primary ex1" id='display1' style="color: #020202;">Student
+								</h6>
+						</div>
+
+						<div class="col-md-12 col-lg-12 col-xs-12" style=" margin-top:10px;">
+							<h4 class="text-center text-primary ex1" style="color: #020202;"><span
+									class="glyphicon glyphicon-map-marker " style="color:#4FC3F7"></span>&ensp;&ensp;
+							</h4>
+
+							<p id='display2' class="text-primary ex2" style="color: #020202;">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 44 Shirley Ave,West Chicago
+							</p>
+
+							<h4 class="text-center text-primary ex1" style="color: #020202;"><span
+									class="glyphicon glyphicon-envelope " style="color:#4FC3F7"></span>&ensp;&ensp;</h4>
+
+							<h5 class="text-primary text-center ex2" id='display3' style="color: #020202;">
+								abc@netlink.com
+							</h5>
+
+							<h4 class="text-center text-primary  ex1" style="color: #020202;"><span
+									class="glyphicon glyphicon-earphone " style="color:#4FC3F7"></span>&ensp;&ensp;
+							</h4>
+
+							<h5 class="text-primary text-center ex2" id='display4' style="color: #020202;">
+								+918358347476
+							</h5>
+							<hr>
+
+						</div>
+						<div class="col-md-12 col-lg-12 col-xs-12" style=" margin-top:10px;">
+							<h5 class="text-left text-primary ex1" style="color: #020202;"><span
+									class="glyphicon glyphicon-comment " style="color:#4FC3F7"></span>&ensp;&ensp;
+								Profesional Skill</h5>
+
+							<p class="text-primary ex2" id='display5' style="color: #020202;">
+								<span class="glyphicon glyphicon-menu-right " style="color:#4FC3F7"></span>&ensp;HTTML 5
+								&ensp;&ensp;
+							</p>
+
+							<p class="text-primary ex2" id='display6' style="color: #020202;">
+								<span class="glyphicon glyphicon-menu-right "
+									style="color:#4FC3F7"></span>&ensp;JavaScript &ensp;&ensp;
+							</p>
+
+							<p class="text-primary ex2" id='display7' style="color: #020202;">
+								<span class="glyphicon glyphicon-menu-right " style="color:#4FC3F7"></span>&ensp;PHP
+								&ensp;&ensp;
+							</p>
+
+							<p class="text-primary ex2" id='display8' style="color: #020202;">
+								<span class="glyphicon glyphicon-menu-right " style="color:#4FC3F7"></span>&ensp;Asp.Net
+								&ensp;&ensp;
+							</p>
+
+							<p class="text-primary ex2" id='display9' style="color: #020202;">
+								<span class="glyphicon glyphicon-menu-right " style="color:#4FC3F7"></span>&ensp;Cpp
+								&ensp;&ensp;
+							</p>
+
+							<p class="text-primary ex2" id='display10' style="color: #020202;">
+								<span class="glyphicon glyphicon-menu-right " style="color:#4FC3F7"></span>&ensp;Python
+								&ensp;&ensp;
+							</p>
+
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-md-8 col-lg-8 col-xs-8 div8">
+
+					<h4 class="text-left text-primary ex1" style="color: #020202; padding-top:25px;"><span
+							class="glyphicon glyphicon-education " style="color:#4FC3F7"></span>&ensp; EDUCATION<span>
+					</h4>
+					<p id='display11-1' class="text-primary ex3" style="color: #020202; padding-left:25px;">
+						School
+					</p><br>
+					<p id='display11-2' class="text-primary ex3" style="color: #020202; padding-left:25px;">
+						Graduation
+					</p><br>
+					<p id='display11-3' class="text-primary ex3" style="color: #020202; padding-left:25px;">
+						Postgraduation
+					</p><br>
+
+					<hr style="border-top: 1px solid #000000;">
+
+					<h4 class="text-left text-primary ex1" style="color: #020202; padding-top:25px;"><span
+							class="glyphicon glyphicon-briefcase " style="color:#4FC3F7"></span>&ensp;
+						EXPERIENCE/PROJECTS<span></h4>
+
+					<p id='display12-1' class="text-primary ex3" style="color: #020202; padding-left:25px;">
+						Exp1
+					</p>
+					<p id='display12-2' class="text-primary ex3" style="color: #020202; padding-left:25px;">
+						Exp2
+					</p>
+					<p id='display12-3' class="text-primary ex3" style="color: #020202; padding-left:25px;">
+						Exp3
+					</p>
+
+					<hr style="border-top: 1px solid #000000;">
+
+					<h4 class="text-left text-primary ex1" style="color: #020202; padding-top:25px;"><span
+							class="glyphicon glyphicon-briefcase " style="color:#4FC3F7"></span>&ensp; CRERTIFICATE &
+						AWARD<span></h4>
+					<p id='display13' class="text-primary ex3" style="color: #020202; padding-left:25px;">
+						There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+						alteration in some form, by injected
+					</p>
+
+
+					<hr style="border-top: 1px solid #000000;">
+
+					<h4 class="text-left text-primary ex1" style="color: #020202; padding-top:25px;"><span
+							class="glyphicon glyphicon-briefcase " style="color:#4FC3F7"></span>&ensp;INTERESTS<span>
+					</h4>
+					<p id='display14' class="text-primary ex3" style="color: #020202; padding-left:25px;">
+						There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+						alteration in some form, by injected
+					</p>
+
+				</div>
+			</div><br>
+		</div>
+
+
+		<script>
+
+			function printDiv(divName) {
+
+				var printContents = document.getElementById(divName).innerHTML;
+				var originalContents = document.body.innerHTML;
+				document.body.innerHTML = printContents;
+				window.print();
+				document.body.innerHTML = originalContents;
+			}
+
+		</script>
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
